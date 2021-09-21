@@ -6,7 +6,8 @@ import {
   TextAlignProps,
 } from 'styled-system';
 
-type InputVariant = 'black' | 'pink'
+type InputBgVariant = 'black' | 'pink'
+type InputBorderVariant = 'rounded' | 'rectangle'
 
 export interface ButtonProps
   extends ColorProps,
@@ -14,5 +15,6 @@ export interface ButtonProps
   BoxShadowProps,
   SpaceProps,
   PositionProps {
-  backgroundColor?: InputVariant
+  backgroundColor?: InputBgVariant,
+  borderRadius?: InputBorderVariant
 }

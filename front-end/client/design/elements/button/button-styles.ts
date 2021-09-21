@@ -8,6 +8,14 @@ const pink = {
   backgroundColor: theme.colors.PINK
 }
 
-const ButtonStyles = { black, pink }
+const bordered = {
+  borderRadius: '40px'
+}
+
+const rectangle = {
+  borderRadius: '0px'
+}
+
+const ButtonStyles = { black, pink, bordered, rectangle }
 
 export default ButtonStyles
