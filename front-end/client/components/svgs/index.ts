@@ -1,5 +1,7 @@
+export { default as ArrowRight } from './arrow-right'
 export { default as Instagram } from './instagram'
 export { default as Facebook } from './facebook'
 export { default as Twitter } from './twitter'
 export { default as Vimeo } from './vimeo'
 export { default as Menu } from './menu'
+export { default as Play } from './play'
