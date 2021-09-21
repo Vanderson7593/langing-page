@@ -1,6 +1,6 @@
-import { Flex, Heading, Text, View } from "@elements";
+import { Button, Flex, Heading, Text, View } from "@elements";
 import { useTheme } from "@emotion/react";
-import { Menu } from "@svgs";
+import { ArrowRight, Menu, Play } from "@svgs";
 import { MENUS } from "client/constants/menus";
 import useWindowSize from "client/hooks/use-window-size";
 import Image from "next/image";
@@ -32,6 +32,21 @@ const Hero: FC = () => {
             living.
           </Text>
         </Flex>
+        <Flex
+          alignItems="flex-start"
+          flexDirection={["column", "column", "column", "row"]}
+        >
+          <Button backgroundColor="pink" borderRadius="rectangle">
+            Reserve Now <ArrowRight />
+          </Button>
+          <Button
+            pl={["0", "0", "0", "25px"]}
+            color={colors.GREY_DARK}
+            borderRadius="rectangle"
+          >
+            <Play /> <Text>Watch our story</Text>
+          </Button>
+        </Flex>
       </Flex>
       <View>
         {width >= SM && (
@@ -47,7 +62,7 @@ const Hero: FC = () => {
         <View
           position="absolute"
           left={width <= SM ? -30 : -200}
-          top={width <= SM ? 345 : 40}
+          top={width <= SM ? 290 : 40}
           zIndex={-1}
         >
           <Image
