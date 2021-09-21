@@ -1,6 +1,7 @@
 const PALETTE = {
   PINK: ' #FF817E',
   PINK_LIGHT: '#FFC3C2',
+  PINK_EXTRA_LIGHT: '#FCF5EE',
 
   GREY: '#E3E6EA',
   GREY_DARK: '#263A41',
