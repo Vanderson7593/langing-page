@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Services\AppointmentService;
-use Illuminate\Http\Request;
+use App\Validators\AppointmentValidator;
 
 class AppointmentController extends Controller
 {
@@ -16,8 +16,13 @@ class AppointmentController extends Controller
     $this->appointmentService = $appointmentService;
   }
 
-  public function create(Request $request)
+  public function create()
   {
-    return $this->appointmentService->makeAppointment();
+    $validator = AppointmentValidator::validateAppointment();
+
+    if ($validator->fails()) {
+      return $this->errorResponse($validator->errors(), 422);
+    }
+    return $this->appointmentService->makeAppointment($validator->validated());
   }
 }

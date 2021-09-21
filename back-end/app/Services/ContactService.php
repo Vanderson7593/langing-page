@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Constants\ResponseMessages;
 use App\Repositories\Contracts\ContactRepositoryInterface;
 use App\Traits\ApiResponser;
-use App\Validators\ContactValidator;
 
 class ContactService
 {
@@ -18,15 +17,9 @@ class ContactService
     $this->contactRepository = $contactRepository;
   }
 
-  public function makeContact()
+  public function makeContact(array $contact)
   {
-    $validator = ContactValidator::validateContact();
-
-    if ($validator->fails()) {
-      return $this->errorResponse($validator->errors(), 422);
-    }
-
-    $finalData = $this->contactRepository->createContact($validator->validated());
+    $finalData = $this->contactRepository->createContact($contact);
     return $this->successResponse($finalData, ResponseMessages::CONTACT_CREATED, 201);
   }
 }

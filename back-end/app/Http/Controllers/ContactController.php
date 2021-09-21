@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Services\ContactService;
-use Illuminate\Http\Request;
+use App\Validators\ContactValidator;
 
 class ContactController extends Controller
 {
-
   protected $contactService;
 
   public function __construct(ContactService $contactService)
@@ -16,8 +15,14 @@ class ContactController extends Controller
     $this->contactService = $contactService;
   }
 
-  public function create(Request $request)
+  public function create()
   {
-    return $this->contactService->makeContact();
+    $validator = ContactValidator::validateContact();
+
+    if ($validator->fails()) {
+      return $this->errorResponse($validator->errors(), 422);
+    }
+
+    return $this->contactService->makeContact($validator->validated());
   }
 }
