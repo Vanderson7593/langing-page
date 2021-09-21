@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\{
+  ContactController,
+  AppointmentController
+};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/contacts', [ContactController::class, 'create']);
+
+Route::post('/appointments', [AppointmentController::class, 'create']);

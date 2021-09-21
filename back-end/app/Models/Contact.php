@@ -14,7 +14,6 @@ class Contact extends Model
     use HasFactory;
 
     protected $fillable = [
-        ModelConstants::ID,
         ConstantsContact::FIRST_NAME,
         ConstantsContact::EMAIL,
         ConstantsContact::COMMENT,

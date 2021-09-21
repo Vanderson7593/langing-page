@@ -8,8 +8,8 @@ import { IContact } from "client/types/contact";
 import { contactSchema } from "client/validators/contact";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createContact } from "client/services/contact";
-import { useSnackbar } from "react-simple-snackbar";
 import { useTheme } from "@emotion/react";
+import { useSnackbar } from "react-simple-snackbar";
 
 interface ICreateContact extends Partial<IContact> {}
 

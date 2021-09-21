@@ -4,10 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Contracts\{
-    ContactRepositoryInterface
+    ContactRepositoryInterface,
+    AppointmentRepositoryInterface
 };
 use App\Repositories\{
-    ContactRepository
+    ContactRepository,
+    AppointmentRepository
 };
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -22,6 +24,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ContactRepositoryInterface::class,
             ContactRepository::class,
+        );
+        $this->app->bind(
+            AppointmentRepositoryInterface::class,
+            AppointmentRepository::class,
         );
     }
 
