@@ -11,11 +11,13 @@ import { useSnackbar } from "react-simple-snackbar";
 import Select from "client/design/elements/select";
 import { SERVICES } from "../../mocks/service";
 import { v4 as uuid } from "uuid";
+import useWindowSize from "client/hooks/use-window-size";
 
 interface ICreateAppointment extends Partial<IAppointment> {}
 
 const Appointment: FC = () => {
   const { colors } = useTheme();
+  const { width } = useWindowSize();
   const [service, setService] = useState("");
 
   const [openSnackbar, _] = useSnackbar();
@@ -35,6 +37,8 @@ const Appointment: FC = () => {
     }
   };
 
+  const SM = 768;
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -42,17 +46,20 @@ const Appointment: FC = () => {
           alignItems="center"
           backgroundColor={colors.PINK_EXTRA_LIGHT}
           my={150}
+          py={50}
           style={{ gap: 100 }}
           flexDirection={["column", "column", "column", "row"]}
         >
-          <Flex>
-            <Image
-              src="/appointment/appointment-left-img.png"
-              width={720}
-              height={600}
-              alt="form-left-img"
-            />
-          </Flex>
+          {width >= SM && (
+            <Flex>
+              <Image
+                src="/appointment/appointment-left-img.png"
+                width={720}
+                height={600}
+                alt="form-left-img"
+              />
+            </Flex>
+          )}
           <Flex
             width={["90vw", "90vw", "90vw", "600px"]}
             flexDirection="column"
@@ -144,7 +151,7 @@ const Appointment: FC = () => {
                   backgroundColor="pink"
                   style={{ cursor: "pointer" }}
                 >
-                  Make an appointment
+                  Make AN APPOINTMENT
                 </Button>
               </View>
             </Flex>
