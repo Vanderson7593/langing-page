@@ -1,4 +1,3 @@
-# W51 Fullstack aptitude test
-This is my W51 company aptiude test
+# Fullstack landing page
 
 ## Each side has it's own readme!
